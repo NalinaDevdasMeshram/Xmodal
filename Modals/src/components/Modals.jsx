@@ -46,7 +46,7 @@ const Modals = () => {
       </button>
       {ismodel && (
         <div className={styles.modal}>
-          <div className={styles.modalcontent}>
+          <div className="modal-content">
             <form onSubmit={formValidation}>
               <h1>Fill Form</h1>
               <div>
