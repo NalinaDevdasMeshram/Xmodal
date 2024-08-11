@@ -61,7 +61,7 @@ const Modals = () => {
       </button>
       {isModal && (
         <div className={styles.modal}>
-          <div className="modal-content" ref={modelref}>
+          <div className={styles.modalcontent} ref={modelref}>
             <form onSubmit={formValidation}>
               <h1>Fill Form</h1>
               <div>
