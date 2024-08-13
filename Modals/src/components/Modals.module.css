@@ -30,6 +30,10 @@ h1 {
 .btnopen:hover {
   opacity: 0.6;
 }
+.modalOpen {
+  background-color: #0000;
+  transition: background-color 0.3s ease;
+}
 .modal {
   margin-top: 60px;
   position: fixed;

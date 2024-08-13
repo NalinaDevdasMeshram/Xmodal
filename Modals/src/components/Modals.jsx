@@ -15,12 +15,15 @@ const Modals = () => {
         setIsModal(false);
     };
     if (isModal) {
+      document.body.classList.add(styles.modalOpen);
       document.addEventListener("mousedown", handleoutsideclick);
     } else {
+      document.body.classList.remove(styles.modalOpen);
       document.removeEventListener("mousedown", handleoutsideclick);
     }
 
     return () => {
+      document.body.classList.remove(styles.modalOpen);
       document.removeEventListener("mousedown", handleoutsideclick);
     };
   }, [isModal]);
