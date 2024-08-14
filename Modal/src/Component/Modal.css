@@ -3,7 +3,12 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+body .modal-open {
+  width: 100%;
+  height: 100%;
+  border: px solid red;
+  background-color: transparent(green);
+}
 .modal-top {
   margin-top: 50px;
   display: flex;
@@ -41,6 +46,7 @@
   transition: opacity 0.3s ease;
 }
 .modal-content {
+  position: relative;
   text-align: left;
   padding: 10px;
 }
@@ -69,4 +75,8 @@
 }
 .modal-content button {
   margin-left: 40%;
+}
+.modal-content .dob {
+  display: flex;
+  justify-content: space-between;
 }

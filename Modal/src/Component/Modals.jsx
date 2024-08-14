@@ -43,33 +43,28 @@ const Modals = () => {
   };
   const validatePhone = (phone) => {
     const phoneNo = /^\d{10}$/;
-    if (!validatePhone(phone)) {
-      alert("Invalid phone number. Please enter a 10-digit phone number.");
-      return phoneNo.test(phone);
-    }
+
+    return phoneNo.test(phone);
   };
-  const validateDOB = (dob) => {
-    const selectedDOB = new Date();
-    const currentDOB = new Date(dob);
-    return selectedDOB <= currentDOB;
-  };
+
   const formValidation = (e) => {
     e.preventDefault();
-    // const { email, phone, dob } = formData;
-    if (!validateEmail) {
+    const { email, phone, dob } = formData;
+    if (!validateEmail(email)) {
       alert("Invalid email. Please check your email address.");
       return;
     }
-    if (!validatePhone) {
+    if (!validatePhone(phone)) {
       alert("Invalid phone number. Please enter a 10-digit phone number.");
       return;
     }
-    if (!validateDOB) {
+    const selectedDOB = new Date();
+    const currentDOB = new Date(dob);
+    if (selectedDOB < currentDOB) {
       alert("Invalid date of birth. Date cannot be in the future date");
       return;
     }
     alert("form submitted successfully");
-    return;
   };
 
   return (
@@ -78,7 +73,7 @@ const Modals = () => {
       <button onClick={handleopenform}>Open Form</button>
 
       {ismodal && (
-        <div className="modal">
+        <div className="modal" ref={modalRef}>
           <div className="modal-content">
             <form onSubmit={formValidation}>
               <h1>Fill Details</h1>
@@ -86,7 +81,7 @@ const Modals = () => {
                 <h4>Username:</h4>
                 <input
                   type="text"
-                  id="userid"
+                  id="username"
                   value={formData.username}
                   onChange={handleInputChange}
                   required
@@ -115,6 +110,7 @@ const Modals = () => {
               <div>
                 <h4>Date Of Birth:</h4>
                 <input
+                  className="dob"
                   type="Date"
                   id="dob"
                   value={formData.dob}
@@ -122,7 +118,7 @@ const Modals = () => {
                   required
                 />
               </div>
-              <button>Submit</button>
+              <button type="submit">Submit</button>
             </form>
           </div>
         </div>
