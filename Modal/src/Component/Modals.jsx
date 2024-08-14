@@ -43,7 +43,6 @@ const Modals = () => {
   };
   const validatePhone = (phone) => {
     const phoneNo = /^\d{10}$/;
-
     return phoneNo.test(phone);
   };
 
@@ -58,8 +57,8 @@ const Modals = () => {
       alert("Invalid phone number. Please enter a 10-digit phone number.");
       return;
     }
-    const selectedDOB = new Date();
-    const currentDOB = new Date(dob);
+    const selectedDOB = new Date(dob);
+    const currentDOB = new Date();
     if (selectedDOB < currentDOB) {
       alert("Invalid date of birth. Date cannot be in the future date");
       return;
